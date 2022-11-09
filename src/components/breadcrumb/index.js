@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-//nilai ynag diterima dalam bentuk objek
-export default function breadcrumb({ List }) {
+//nilai yang diterima dalam bentuk objek
+export default function Breadcrumb({ List }) {
   return (
     <section className="bg-gray-100 py-8 px-4">
       <div className="container mx-auto">
@@ -20,15 +20,6 @@ export default function breadcrumb({ List }) {
               </li>
             );
           })}
-
-          <li>
-            <Link to="#">Office Room</Link>
-          </li>
-          <li>
-            <Link to="#" aria-label="current-page">
-              Details
-            </Link>
-          </li>
         </ul>
       </div>
     </section>
@@ -36,6 +27,6 @@ export default function breadcrumb({ List }) {
 }
 
 //prop list dari komponen bradcrumb harus dalam bentuk array
-breadcrumb.prototype = {
+Breadcrumb.prototype = {
   list: PropTypes.array.isRequired,
 };

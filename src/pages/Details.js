@@ -10,9 +10,9 @@ import Footer from "parts/Footer";
 export default function HomePage(props) {
   return (
     <>
-      <Header />
+      <Header theme="black" />
       <Breadcrumb
-        list={[
+        List={[
           { url: "/", name: "Home" },
           { url: "/categories/6342", name: "Office Room" },
           { url: "/categories/6342/products/4321", name: "Details" },
