@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "parts/Header";
 import Breadcrumb from "components/breadcrumb/index";
-// import BrowsRoom from "parts/HomePage/browsRoom";
-// import Arrived from "parts/HomePage/justArrived";
-import Client from "parts/Client";
+import ProductDetails from "parts/Details/ProductDetails";
+import Suggestion from "parts/Details/Suggestion";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 
@@ -18,7 +17,8 @@ export default function HomePage(props) {
           { url: "/categories/6342/products/4321", name: "Details" },
         ]}
       />
-      <Client />
+      <ProductDetails />
+      <Suggestion />
       <Sitemap />
       <Footer />
     </>

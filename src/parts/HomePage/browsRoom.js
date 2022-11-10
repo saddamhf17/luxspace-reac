@@ -20,7 +20,7 @@ export default function browsRoom() {
             <div className="card-shadow rounded-xl">
               <img
                 src="assets/img/catalogue1.jpg"
-                alt=""
+                alt="chair"
                 className="w-full h-full object-cover overlay overflow-hidden rounded-xl"
               />
             </div>
@@ -28,7 +28,7 @@ export default function browsRoom() {
               <h5 className="text-lg font-semibold">Living Rooms</h5>
               <span>23.000+ items</span>
             </div>
-            <Link to="/details" className="streached-link">
+            <Link to="/categories/1122" refresh className="stretched-link ">
               {/* <!--fake children--> */}
             </Link>
           </div>
@@ -37,7 +37,7 @@ export default function browsRoom() {
             <div className="card-shadow rounded-xl">
               <img
                 src="assets/img/catalogue3.jpg"
-                alt=""
+                alt="chair"
                 className="w-full h-full object-cover overlay overflow-hidden rounded-xl"
               />
             </div>
@@ -45,7 +45,7 @@ export default function browsRoom() {
               <h5 className="text-lg font-semibold">Decoration</h5>
               <span>14.000+ items</span>
             </div>
-            <Link to="/details" className="streached-link">
+            <Link to="/categories/1122" refresh className="stretched-link ">
               {/* <!--fake children--> */}
             </Link>
           </div>
@@ -54,7 +54,7 @@ export default function browsRoom() {
             <div className="card-shadow rounded-xl">
               <img
                 src="assets/img/catalogue4.jpg"
-                alt=""
+                alt="chair"
                 className="w-full h-full object-cover overlay overflow-hidden rounded-xl"
               />
             </div>
@@ -62,7 +62,7 @@ export default function browsRoom() {
               <h5 className="text-lg font-semibold">Bed Rooms</h5>
               <span>16.000+ items</span>
             </div>
-            <Link to="/details" className="streached-link">
+            <Link to="/categories/1122" refresh className="stretched-link ">
               {/* <!--fake children--> */}
             </Link>
           </div>
@@ -74,7 +74,7 @@ export default function browsRoom() {
             <div className="card-shadow rounded-xl">
               <img
                 src="assets/img/catalogue2.jpg"
-                alt=""
+                alt="chair"
                 className="w-full h-full object-cover overlay overflow-hidden rounded-xl"
               />
             </div>
@@ -82,7 +82,7 @@ export default function browsRoom() {
               <h5 className="text-lg font-semibold">Children Rooms</h5>
               <span>17.000+ items</span>
             </div>
-            <Link to="/details" className="streached-link">
+            <Link to="/categories/1122" refresh className="stretched-link ">
               {/* <!--fake children--> */}
             </Link>
           </div>
