@@ -30,6 +30,7 @@ export default function ProductDetails() {
                 <div className="item" data-img="/assets/img/chair2.jpg">
                   <img
                     className="object-cover w-full h-full rounded-lg"
+                    alt=""
                     src="/assets/img/chair2.jpg"
                   />
                 </div>
@@ -39,6 +40,7 @@ export default function ProductDetails() {
                 <div className="item" data-img="/assets/img/chair4.jpg">
                   <img
                     className="object-cover w-full h-full rounded-lg"
+                    alt=""
                     src="/assets/img/chair4.jpg"
                   />
                 </div>
@@ -48,6 +50,7 @@ export default function ProductDetails() {
                 <div className="item" data-img="/assets/img/chair5.jpg">
                   <img
                     className="object-cover w-full h-full rounded-lg"
+                    alt=""
                     src="/assets/img/chair5.jpg"
                   />
                 </div>
@@ -57,6 +60,7 @@ export default function ProductDetails() {
                 <div className="item" data-img="/assets/img/chair6.jpg">
                   <img
                     className="object-cover w-full h-full rounded-lg"
+                    alt=""
                     src="/assets/img/chair6.jpg"
                   />
                 </div>
@@ -66,8 +70,8 @@ export default function ProductDetails() {
               <div className="item rounded-lg h-full overflow-hidden">
                 <img
                   className="object-cover w-full h-full rounded-lg"
-                  src="/assets/img/master-img.jpg"
                   alt=""
+                  src="/assets/img/master-img.jpg"
                 />
               </div>
             </div>
