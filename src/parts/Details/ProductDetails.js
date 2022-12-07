@@ -1,77 +1,53 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
+import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 
-export default function ProductDetails() {
+export default function ProductDetails({ data }) {
+  const [slider, setSlider] = React.useState(() => data?.imgUrls?.[0] || "");
+  const { dispatch } = useGlobalContext();
+  console.log(dispatch);
   return (
     <section className="container mx-auto">
       <div className="flex flex-wrap my-4 md:my-12">
         <div className="w-full md:hidden px-4">
-          <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-          <span className="text-xl"> IDR 3.700.000</span>
+          <h2 className="text-5xl font-semibold">{data.title}</h2>
+          <span className="text-xl"> IDR {data.price}</span>
         </div>
 
         <div className="flex-1">
           <div className="slider">
             <div className="thumbnail">
-              <div className="px-2">
-                <div
-                  className="item selected"
-                  data-img="/assets/img/master-img.jpg"
-                >
-                  <img
-                    className="object-cover w-full h-full rounded-lg"
-                    alt=""
-                    src="/assets/img/master-img.jpg"
-                  />
-                </div>
-              </div>
-
-              <div className="px-2">
-                <div className="item" data-img="/assets/img/chair2.jpg">
-                  <img
-                    className="object-cover w-full h-full rounded-lg"
-                    alt=""
-                    src="/assets/img/chair2.jpg"
-                  />
-                </div>
-              </div>
-
-              <div className="px-2">
-                <div className="item" data-img="/assets/img/chair4.jpg">
-                  <img
-                    className="object-cover w-full h-full rounded-lg"
-                    alt=""
-                    src="/assets/img/chair4.jpg"
-                  />
-                </div>
-              </div>
-
-              <div className="px-2">
-                <div className="item" data-img="/assets/img/chair5.jpg">
-                  <img
-                    className="object-cover w-full h-full rounded-lg"
-                    alt=""
-                    src="/assets/img/chair5.jpg"
-                  />
-                </div>
-              </div>
-
-              <div className="px-2">
-                <div className="item" data-img="/assets/img/chair6.jpg">
-                  <img
-                    className="object-cover w-full h-full rounded-lg"
-                    alt=""
-                    src="/assets/img/chair6.jpg"
-                  />
-                </div>
-              </div>
+              {data?.imgUrls?.map((item) => {
+                return (
+                  <div
+                    className="px-2"
+                    key={item}
+                    onClick={() => setSlider(item)}
+                  >
+                    <div
+                      className={[
+                        "item",
+                        slider === item ? "bg-gray-100 selected" : "",
+                      ].join(" ")}
+                    >
+                      <img
+                        className="object-cover w-full h-full rounded-lg"
+                        alt={item}
+                        src={item}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+
             <div className="preview">
               <div className="item rounded-lg h-full overflow-hidden">
                 <img
                   className="object-cover w-full h-full rounded-lg"
-                  alt=""
-                  src="/assets/img/master-img.jpg"
+                  alt={slider}
+                  src={slider}
                 />
               </div>
             </div>
@@ -80,12 +56,17 @@ export default function ProductDetails() {
 
         <div className="flex-1 px-4 md:p-6">
           <div className="hidden md:block">
-            <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-            <span className="text-xl">IDR 3.700.000</span>
+            <h2 className="text-5xl font-semibold">{data.title}</h2>
+            <span className="text-xl">IDR {data.price}</span>
           </div>
-          <Link
-            to="cart.html"
+          <button
             className="transition-all duration-200 bg-pink-400 text-black hover:bg-black hover:text-pink-400 rounded-full px-8 py-3 mt-4 inline-flex w-full md:w-auto justify-center"
+            onClick={() =>
+              dispatch({
+                type: "ADD_TO_CART",
+                item: data,
+              })
+            }
           >
             <svg
               className="fill-current mr-3"
@@ -102,20 +83,11 @@ export default function ProductDetails() {
               <path d="M25.6499 4.88404C25.407 4.58092 25.0472 4.40711 24.6626 4.40711H4.82655L4.42595 2.42947C4.34232 2.01694 4.06563 1.67055 3.68565 1.50276L0.890528 0.268963C0.567841 0.126419 0.192825 0.276999 0.0528584 0.60505C-0.0872597 0.933204 0.0608116 1.31463 0.383347 1.45696L3.17852 2.69081L6.2598 17.9014C6.38117 18.5004 6.90578 18.9352 7.50723 18.9352H22.7635C23.1152 18.9352 23.4003 18.6452 23.4003 18.2876C23.4003 17.9299 23.1152 17.64 22.7635 17.64H7.50728L7.13247 15.7897H22.8814C23.4828 15.7897 24.0075 15.3549 24.1288 14.7559L25.9101 5.96349C25.9876 5.58063 25.8928 5.1871 25.6499 4.88404ZM22.8814 14.4946H6.87012L5.08895 5.70226L24.6626 5.70231L22.8814 14.4946Z" />
             </svg>{" "}
             Add to Cart
-          </Link>
+          </button>
 
           <hr className="my-8" />
           <h6 className="text-xl font-semibold mb-4">About the product</h6>
-          <p className="text-xl leading-7 mb-6">
-            Tailored to a level of perfection synonymous with that of a Savile
-            Row suit and with understated quality in the detail, Jetty has been
-            influenced by timeless 1950s style.
-          </p>
-          <p className="text-xl leading-7 mb-6">
-            Providing a subtle nod to the past, Jetty also provides a perfect
-            solution for the way we work today. A comprehensive product family,
-            Jetty features a variety of elegant chairs and sofas.
-          </p>
+          {data.description ? ReactHtmlParser(data.description) : ""}
         </div>
       </div>
     </section>
