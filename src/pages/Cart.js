@@ -4,13 +4,14 @@ import Breadcrumb from "components/breadcrumb/index";
 
 import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
+import Document from "parts/Document";
 
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 
 export default function Cart() {
   return (
-    <>
+    <Document>
       <Header theme="black" />
       <Breadcrumb
         List={[
@@ -31,6 +32,6 @@ export default function Cart() {
       <Suggestion /> */}
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }

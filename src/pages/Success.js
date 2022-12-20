@@ -4,10 +4,10 @@ import Header from "parts/Header";
 import Sitemap from "parts/Sitemap";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Document from "parts/Document";
 export default function Success() {
   return (
-    <>
+    <Document>
       <Header theme="black" />
       <Breadcrumb
         List={[
@@ -39,6 +39,6 @@ export default function Success() {
       </section>
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }

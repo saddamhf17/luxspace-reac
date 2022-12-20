@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useAsync from "helpers/hooks/useAsync";
 import fetch from "helpers/fetch";
-
+import "helpers/formating/thousand";
 //skeleton loading
 function Loading({ ratio = {} }) {
   const dummy = [
@@ -123,7 +123,8 @@ export default function BrowsRoom() {
                   >
                     <h5 className="text-lg font-semibold">{item.title}</h5>
                     <span>
-                      {item.products}+ item{item.products > 1 ? "s" : ""}
+                      {item.products.thousand()}+ item
+                      {item.products > 1 ? "s" : ""}
                     </span>
                   </div>
                 </div>

@@ -2,10 +2,14 @@ import React, { useEffect } from "react";
 import Header from "parts/Header";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "components/breadcrumb/index";
+
 import ProductDetails from "parts/Details/ProductDetails";
 import Suggestion from "parts/Details/Suggestion";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
+import Document from "parts/Document";
+import ErrorMsg from "parts/PageErrorMassage";
+
 import useAsync from "helpers/hooks/useAsync";
 import fetch from "helpers/fetch";
 
@@ -96,29 +100,42 @@ function LoadingSuggestion() {
 
 export default function HomePage(props) {
   const { id } = useParams();
-  const { data, run, isLoading } = useAsync();
+  const { data, error, run, isLoading, isError } = useAsync();
   //fetch API
   useEffect(() => {
     run(fetch({ url: `/api/products/${id}` }));
-  }, [run]);
+  }, [run, id]);
   return (
     <>
-      <Header theme="black" />
-      <Breadcrumb
-        List={[
-          { url: "/", name: "Home" },
-          { url: "/categories/6342", name: "Office Room" },
-          { url: "/categories/6342/products/4321", name: "Details" },
-        ]}
-      />
-      {isLoading ? <LoadingProductDetail /> : <ProductDetails data={data} />}
-      {isLoading ? (
-        <LoadingSuggestion />
-      ) : (
-        <Suggestion data={data?.relatedProducts || {}} />
-      )}
-      <Sitemap />
-      <Footer />
+      <Document>
+        <Header theme="black" />
+        <Breadcrumb
+          List={[
+            { url: "/", name: "Home" },
+            { url: "/categories/6342", name: "Office Room" },
+            { url: "/categories/6342/products/4321", name: "Details" },
+          ]}
+        />
+        {isError ? (
+          <ErrorMsg title="Product Not Found" />
+        ) : (
+          <>
+            {isLoading ? (
+              <LoadingProductDetail />
+            ) : (
+              <ProductDetails data={data} />
+            )}
+            {isLoading ? (
+              <LoadingSuggestion />
+            ) : (
+              <Suggestion data={data?.relatedProducts || {}} />
+            )}
+          </>
+        )}
+
+        <Sitemap />
+        <Footer />
+      </Document>
     </>
   );
 }
